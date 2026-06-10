@@ -1,0 +1,255 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: 255 255 255;
+    --surface: 255 255 255;
+    --surface-elevated: 247 249 254;
+    --text: 0 28 102; /* navy-900 #001C66 */
+    --text-muted: 71 95 132;
+    --border: 0 56 184 / 0.1;
+    --orange: 255 122 0;
+    --israel: 0 56 184;
+  }
+  .dark {
+    --bg: 0 16 51;
+    --surface: 0 28 102;
+    --surface-elevated: 0 44 140;
+    --text: 246 250 255;
+    --text-muted: 198 219 245;
+    --border: 255 255 255 / 0.08;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    color: rgb(var(--text));
+    background: rgb(var(--bg));
+    font-feature-settings: "ss01", "cv11";
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(255, 122, 0, 0.25);
+    color: rgb(var(--text));
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  *:focus-visible {
+    outline: 2px solid rgb(var(--orange));
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply backdrop-blur-xl border;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(255, 255, 255, 0.65) 100%
+    );
+    border-color: rgba(0, 56, 184, 0.1);
+  }
+  .dark .glass {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.06) 0%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-strong {
+    @apply backdrop-blur-2xl border;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.96) 0%,
+      rgba(247, 249, 254, 0.85) 100%
+    );
+    border-color: rgba(0, 56, 184, 0.1);
+  }
+  .dark .glass-strong {
+    background: linear-gradient(
+      135deg,
+      rgba(0, 28, 102, 0.7) 0%,
+      rgba(0, 28, 102, 0.4) 100%
+    );
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  /* Dominant brand gradient — deep navy at the start fading to a luminous
+     bright blue. Used across headings, eyebrows, statistic numbers. */
+  .text-gradient-blue {
+    background: linear-gradient(
+      90deg,
+      #001033 0%,
+      #001c66 18%,
+      #0038b8 55%,
+      #1f5be6 82%,
+      #5b82ee 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .dark .text-gradient-blue {
+    background: linear-gradient(
+      90deg,
+      #ffffff 0%,
+      #c5d1f8 35%,
+      #5b82ee 75%,
+      #0046db 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Vertical variant for hero/large headlines */
+  .text-gradient-blue-v {
+    background: linear-gradient(
+      180deg,
+      #001033 0%,
+      #001c66 30%,
+      #0038b8 75%,
+      #1f5be6 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .dark .text-gradient-blue-v {
+    background: linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #c5d1f8 55%,
+      #5b82ee 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .ring-border {
+    box-shadow:
+      inset 0 0 0 1px rgba(0, 56, 184, 0.08),
+      0 8px 24px -12px rgba(0, 56, 184, 0.18);
+  }
+  .dark .ring-border {
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+      0 30px 60px -30px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Very subtle grid — light mode only */
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(0, 56, 184, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 56, 184, 0.045) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(ellipse 70% 50% at 50% 30%, black 35%, transparent 80%);
+  }
+  .dark .grid-bg {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  }
+
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-medium text-white transition-all duration-300;
+    background: linear-gradient(135deg, #ff924d 0%, #ff7a00 50%, #e66a00 100%);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.35) inset,
+      0 -10px 30px rgba(255, 122, 0, 0.25) inset,
+      0 8px 24px -8px rgba(255, 122, 0, 0.4);
+  }
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.35) inset,
+      0 -10px 30px rgba(255, 122, 0, 0.35) inset,
+      0 16px 40px -10px rgba(255, 122, 0, 0.55);
+  }
+
+  .btn-ghost {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-medium transition-all duration-300;
+    color: #0038b8;
+    background: #ffffff;
+    border: 1px solid rgba(0, 56, 184, 0.18);
+  }
+  .btn-ghost:hover {
+    background: #f7f9fe;
+    border-color: rgba(255, 122, 0, 0.5);
+    color: #ff7a00;
+  }
+  .dark .btn-ghost {
+    color: rgb(var(--text));
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  .dark .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 122, 0, 0.4);
+  }
+
+  .section {
+    @apply relative overflow-hidden py-20 md:py-28;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em];
+    color: #0038b8;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #0038b8);
+  }
+}
+
+@layer utilities {
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hidden {
+    scrollbar-width: none;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  .mask-fade-r {
+    mask-image: linear-gradient(90deg, black 80%, transparent);
+  }
+  .mask-fade-b {
+    mask-image: linear-gradient(180deg, black 70%, transparent);
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
