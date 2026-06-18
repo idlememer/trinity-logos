@@ -15,7 +15,7 @@ import { Spotlight } from "@/components/ui/Spotlight";
  */
 export function Hero() {
   return (
-    <section className="relative isolate overflow-hidden pb-20 pt-40 lg:pb-28 lg:pt-72">
+    <section className="relative isolate overflow-hidden pb-20 pt-40 lg:pb-28 lg:pt-56">
       <GradientOrbs intensity="subtle" />
 
       <div className="container relative">

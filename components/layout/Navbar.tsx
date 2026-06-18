@@ -76,14 +76,14 @@ export function Navbar() {
       <div
         className={cn(
           "flex justify-center px-3 transition-all duration-500 sm:px-6",
-          scrolled ? "pt-3 lg:pt-6" : "pt-5 lg:pt-10"
+          scrolled ? "pt-3 lg:pt-4" : "pt-5 lg:pt-7"
         )}
       >
         <motion.header
           layout
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           className={cn(
-            "flex w-full max-w-7xl items-center justify-between rounded-full border px-4 py-2.5 transition-all duration-500 sm:px-5 lg:max-w-[1640px] lg:px-10 lg:py-5",
+            "flex w-full max-w-7xl items-center justify-between rounded-full border px-4 py-2.5 transition-all duration-500 sm:px-5 lg:px-7 lg:py-3.5",
             scrolled
               ? "border-navy-700/15 bg-white/85 shadow-card backdrop-blur-2xl dark:border-white/10 dark:bg-navy-950/70"
               : "border-navy-700/8 bg-white/70 backdrop-blur-xl dark:border-transparent dark:bg-navy-950/35"
@@ -92,7 +92,7 @@ export function Navbar() {
           <Logo size="sm" />
 
           {/* Desktop nav */}
-          <nav className="hidden items-center gap-2 lg:flex">
+          <nav className="hidden items-center gap-1.5 lg:flex">
             {NAV_ITEMS.map((item) => {
               const active =
                 pathname === item.href ||
@@ -108,7 +108,7 @@ export function Navbar() {
                     href={item.href}
                     onClick={() => openMega(null)}
                     className={cn(
-                      "group relative inline-flex items-center gap-2 rounded-full px-8 py-4 text-[24px] font-medium transition-colors",
+                      "group relative inline-flex items-center gap-1.5 rounded-full px-6 py-3 text-[20px] font-medium transition-colors",
                       active
                         ? "text-navy-900 dark:text-white"
                         : "text-navy-800 hover:text-navy-900 dark:text-navy-100 dark:hover:text-white"
@@ -117,7 +117,7 @@ export function Navbar() {
                     {item.label}
                     {item.mega && (
                       <ChevronDown
-                        size={22}
+                        size={18}
                         className={cn(
                           "opacity-60 transition-transform duration-300",
                           triggers && megaOpen === "services" && "rotate-180"
@@ -141,21 +141,21 @@ export function Navbar() {
           </nav>
 
           {/* Right cluster */}
-          <div className="flex items-center gap-2 lg:gap-4">
-            <ThemeToggle className="hidden md:inline-flex lg:h-14 lg:w-14 lg:[&_svg]:scale-125" />
+          <div className="flex items-center gap-2 lg:gap-3">
+            <ThemeToggle className="hidden md:inline-flex lg:h-12 lg:w-12 lg:[&_svg]:scale-110" />
             <Link
               href="/careers"
-              className="hidden md:inline-flex items-center gap-1.5 rounded-full border border-navy-700/15 bg-white px-4 py-2 text-[13px] font-medium text-navy-800 transition-colors hover:border-navy-700/40 hover:bg-navy-100 dark:border-white/10 dark:bg-white/[0.04] dark:text-navy-100 dark:hover:bg-white/[0.08] lg:gap-2 lg:px-7 lg:py-4 lg:text-lg"
+              className="hidden md:inline-flex items-center gap-1.5 rounded-full border border-navy-700/15 bg-white px-4 py-2 text-[13px] font-medium text-navy-800 transition-colors hover:border-navy-700/40 hover:bg-navy-100 dark:border-white/10 dark:bg-white/[0.04] dark:text-navy-100 dark:hover:bg-white/[0.08] lg:gap-2 lg:px-5 lg:py-3 lg:text-base"
             >
               Browse Jobs
             </Link>
             <Link
               href="/contact"
-              className="hidden md:inline-flex btn-primary !px-5 !py-2.5 text-[13px] lg:!px-8 lg:!py-4 lg:text-lg"
+              className="hidden md:inline-flex btn-primary !px-5 !py-2.5 text-[13px] lg:!px-7 lg:!py-3.5 lg:text-base"
             >
               Join Us Now
               <ArrowRight size={16} className="lg:hidden" />
-              <ArrowRight size={20} className="hidden lg:inline" />
+              <ArrowRight size={18} className="hidden lg:inline" />
             </Link>
             <button
               type="button"

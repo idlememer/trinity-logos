@@ -24,12 +24,12 @@ export function Logo({
   const dims =
     size === "sm"
       ? {
-          // Used in the navbar — modest on mobile, doubled on lg+ per request.
-          h: "h-12 lg:h-24",
-          hpx: 96,
-          title: "text-[17px] lg:text-[34px]",
-          sub: "text-[10.5px] lg:text-[18px]",
-          gap: "gap-3 lg:gap-5",
+          // Used in the navbar — modest on mobile, 1.5× on lg+ per request.
+          h: "h-12 lg:h-[72px]",
+          hpx: 72,
+          title: "text-[17px] lg:text-[25px]",
+          sub: "text-[10.5px] lg:text-[15px]",
+          gap: "gap-3 lg:gap-4",
         }
       : size === "lg"
       ? {

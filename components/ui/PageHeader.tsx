@@ -22,7 +22,7 @@ export function PageHeader({
   children,
 }: Props) {
   return (
-    <section className="relative isolate overflow-hidden pb-12 pt-36 lg:pb-20 lg:pt-64">
+    <section className="relative isolate overflow-hidden pb-12 pt-36 lg:pb-20 lg:pt-52">
       <GradientOrbs intensity="subtle" />
       <div className="container relative">
         <div
