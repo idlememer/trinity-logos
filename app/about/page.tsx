@@ -9,7 +9,7 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 export const metadata: Metadata = {
   title: "About — Talent, Technology, Transformation",
   description:
-    "Founded in Visakhapatnam, Logos Trinity Technologies is India's modern talent and technology partner — serving enterprises across India, GCC and APAC.",
+    "Founded in Visakhapatnam, Logos Trinity Technologies is a modern talent and technology partner — serving enterprises across India.",
 };
 
 const timeline = [
@@ -20,23 +20,23 @@ const timeline = [
   },
   {
     year: "2022",
-    title: "First 1,000 placements",
-    body: "Scaled across Hyderabad, Bengaluru and Pune. Built the first version of our internal ATS and candidate match engine.",
+    title: "First 50 placements",
+    body: "Began working with mid-market clients across Hyderabad, Bengaluru and Visakhapatnam. Built the first version of our internal ATS.",
   },
   {
     year: "2023",
     title: "Software studio launched",
-    body: "Software engineering pods spun up. Delivered first enterprise customer-portal in 14 weeks for a Series-C client.",
+    body: "Software engineering pods spun up. Delivered first enterprise customer portal in 14 weeks for a growth-stage client.",
   },
   {
     year: "2024",
-    title: "GCC + APAC expansion",
-    body: "Opened the Dubai client desk. Crossed 10,000 placements, 150+ enterprise engagements.",
+    title: "Crossed 200 placements",
+    body: "Expanded into Pune and Chennai. Crossed 200 placements and 20+ enterprise engagements across BFSI, retail and technology.",
   },
   {
     year: "2026",
-    title: "AI talent platform",
-    body: "Logos Match v4 — proprietary GenAI screening engine. 38% faster time-to-hire, audit-trail compliant.",
+    title: "AI-assisted matching",
+    body: "Rolled out an in-house screening engine that cut median time-to-hire to 14 days while preserving recruiter judgement.",
   },
 ];
 
@@ -44,17 +44,17 @@ const leadership = [
   {
     name: "Founder & Managing Partner",
     role: "Strategy · Operations",
-    body: "20+ years across recruitment, IT services and enterprise consulting.",
+    body: "A decade across recruitment, IT services and enterprise consulting.",
   },
   {
     name: "Director of Technology",
     role: "Engineering · Product",
-    body: "Ex-FAANG senior engineer. Built data platforms used by 50M+ users.",
+    body: "Senior engineer with a background in data platforms and developer tooling.",
   },
   {
     name: "Director of Talent",
     role: "Recruitment · People",
-    body: "Built talent functions for two unicorns. Network of 25,000+ vetted candidates.",
+    body: "Built talent functions across growth-stage and enterprise clients.",
   },
 ];
 
@@ -83,7 +83,7 @@ export default function AboutPage() {
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="mt-5 font-display text-display-md text-balance font-semibold tracking-tight text-navy-900 dark:text-white">
-                Four years. Twelve thousand placements.{" "}
+                Five years. 300+ placements.{" "}
                 <span className="text-gradient-blue">One trajectory.</span>
               </h2>
             </Reveal>

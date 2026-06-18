@@ -76,14 +76,14 @@ export function Navbar() {
       <div
         className={cn(
           "flex justify-center px-3 transition-all duration-500 sm:px-6",
-          scrolled ? "pt-3" : "pt-5"
+          scrolled ? "pt-3 lg:pt-6" : "pt-5 lg:pt-10"
         )}
       >
         <motion.header
           layout
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           className={cn(
-            "flex w-full max-w-7xl items-center justify-between rounded-full border px-4 py-2.5 transition-all duration-500 sm:px-5",
+            "flex w-full max-w-7xl items-center justify-between rounded-full border px-4 py-2.5 transition-all duration-500 sm:px-5 lg:max-w-[1640px] lg:px-10 lg:py-5",
             scrolled
               ? "border-navy-700/15 bg-white/85 shadow-card backdrop-blur-2xl dark:border-white/10 dark:bg-navy-950/70"
               : "border-navy-700/8 bg-white/70 backdrop-blur-xl dark:border-transparent dark:bg-navy-950/35"
@@ -92,7 +92,7 @@ export function Navbar() {
           <Logo size="sm" />
 
           {/* Desktop nav */}
-          <nav className="hidden items-center gap-1 lg:flex">
+          <nav className="hidden items-center gap-2 lg:flex">
             {NAV_ITEMS.map((item) => {
               const active =
                 pathname === item.href ||
@@ -106,8 +106,9 @@ export function Navbar() {
                 >
                   <Link
                     href={item.href}
+                    onClick={() => openMega(null)}
                     className={cn(
-                      "group relative inline-flex items-center gap-1 rounded-full px-4 py-2 text-[13.5px] font-medium transition-colors",
+                      "group relative inline-flex items-center gap-2 rounded-full px-8 py-4 text-[24px] font-medium transition-colors",
                       active
                         ? "text-navy-900 dark:text-white"
                         : "text-navy-800 hover:text-navy-900 dark:text-navy-100 dark:hover:text-white"
@@ -116,7 +117,7 @@ export function Navbar() {
                     {item.label}
                     {item.mega && (
                       <ChevronDown
-                        size={14}
+                        size={22}
                         className={cn(
                           "opacity-60 transition-transform duration-300",
                           triggers && megaOpen === "services" && "rotate-180"
@@ -140,20 +141,21 @@ export function Navbar() {
           </nav>
 
           {/* Right cluster */}
-          <div className="flex items-center gap-2">
-            <ThemeToggle className="hidden md:inline-flex" />
+          <div className="flex items-center gap-2 lg:gap-4">
+            <ThemeToggle className="hidden md:inline-flex lg:h-14 lg:w-14 lg:[&_svg]:scale-125" />
             <Link
               href="/careers"
-              className="hidden md:inline-flex items-center gap-1.5 rounded-full border border-navy-700/15 bg-white px-4 py-2 text-[13px] font-medium text-navy-800 transition-colors hover:border-navy-700/40 hover:bg-navy-100 dark:border-white/10 dark:bg-white/[0.04] dark:text-navy-100 dark:hover:bg-white/[0.08]"
+              className="hidden md:inline-flex items-center gap-1.5 rounded-full border border-navy-700/15 bg-white px-4 py-2 text-[13px] font-medium text-navy-800 transition-colors hover:border-navy-700/40 hover:bg-navy-100 dark:border-white/10 dark:bg-white/[0.04] dark:text-navy-100 dark:hover:bg-white/[0.08] lg:gap-2 lg:px-7 lg:py-4 lg:text-lg"
             >
               Browse Jobs
             </Link>
             <Link
               href="/contact"
-              className="hidden md:inline-flex btn-primary !px-5 !py-2.5 text-[13px]"
+              className="hidden md:inline-flex btn-primary !px-5 !py-2.5 text-[13px] lg:!px-8 lg:!py-4 lg:text-lg"
             >
               Join Us Now
-              <ArrowRight size={16} />
+              <ArrowRight size={16} className="lg:hidden" />
+              <ArrowRight size={20} className="hidden lg:inline" />
             </Link>
             <button
               type="button"
@@ -201,6 +203,7 @@ export function Navbar() {
                   </p>
                   <Link
                     href="/services"
+                    onClick={() => openMega(null)}
                     className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-navy-700 hover:text-navy-900 dark:text-navy-300 dark:hover:text-white"
                   >
                     Explore all services <ArrowRight size={14} />
@@ -220,6 +223,7 @@ export function Navbar() {
                     >
                       <Link
                         href={`/services#${s.slug}`}
+                        onClick={() => openMega(null)}
                         className="group relative flex items-start gap-3 rounded-xl border border-transparent px-3 py-2.5 transition-all hover:border-navy-700/10 hover:bg-mist-100 dark:hover:border-white/10 dark:hover:bg-white/[0.04]"
                       >
                         <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-navy-100 text-[10px] font-semibold text-navy-700 transition-colors group-hover:bg-navy-700 group-hover:text-white dark:bg-white/[0.04] dark:text-navy-200">

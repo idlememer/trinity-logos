@@ -15,7 +15,7 @@ import { Spotlight } from "@/components/ui/Spotlight";
  */
 export function Hero() {
   return (
-    <section className="relative isolate overflow-hidden pb-20 pt-40 lg:pb-28 lg:pt-48">
+    <section className="relative isolate overflow-hidden pb-20 pt-40 lg:pb-28 lg:pt-72">
       <GradientOrbs intensity="subtle" />
 
       <div className="container relative">
@@ -113,9 +113,9 @@ function HeroVisual() {
 
         {/* Body — single panel, no clutter */}
         <div className="grid grid-cols-1 gap-6 p-7 md:grid-cols-3 md:p-10">
-          <Metric label="Talent placed" value="12,500+" tone="blue" />
-          <Metric label="Enterprise clients" value="180+" tone="blue" />
-          <Metric label="Avg. time-to-hire" value="14 days" tone="orange" />
+          <Metric label="Talent placed" value="300+" tone="blue" />
+          <Metric label="Enterprise clients" value="30+" tone="blue" />
+          <Metric label="Avg. time-to-hire" value="14 days" tone="blue" />
         </div>
 
         <div className="px-7 pb-8 md:px-10 md:pb-10">

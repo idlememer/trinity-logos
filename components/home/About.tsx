@@ -89,11 +89,11 @@ export function About() {
                   </span>
                   <div>
                     <p className="font-display text-base font-semibold text-navy-900 dark:text-white">
-                      4 years. 12,500 placements. 0 dropped commitments.
+                      5 years. 300+ placements. 0 dropped commitments.
                     </p>
                     <p className="mt-2 text-sm leading-relaxed text-navy-700 dark:text-navy-200/80">
-                      From a 3-person team in Visakhapatnam to a multi-city
-                      operation serving clients across India, GCC and APAC —
+                      From a 3-person team in Visakhapatnam to a growing
+                      multi-city operation serving enterprises across India —
                       we've grown without compromising on craft.
                     </p>
                   </div>

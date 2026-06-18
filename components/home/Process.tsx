@@ -63,8 +63,8 @@ export function Process() {
           <Reveal delay={0.1}>
             <h2 className="mt-5 font-display text-display-md text-balance font-semibold tracking-tight text-navy-900 dark:text-white">
               A delivery process tuned over
-              <span className="text-gradient-blue"> 12,500 placements </span>
-              and 180 enterprise engagements.
+              <span className="text-gradient-blue"> 300+ placements </span>
+              and 30+ enterprise engagements.
             </h2>
           </Reveal>
         </div>

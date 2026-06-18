@@ -59,7 +59,7 @@ export const services: Service[] = [
     name: "Consulting",
     short: "Strategic advisory for talent, technology and transformation.",
     description:
-      "Org design, workforce planning, digital transformation roadmaps. We bring senior consultants who have scaled enterprises across India, GCC and APAC.",
+      "Org design, workforce planning, digital transformation roadmaps. We bring senior consultants who have scaled enterprises across India.",
     bullets: [
       "Org & workforce design",
       "Transformation strategy",

@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     template: `%s · ${company.shortName}`,
   },
   description:
-    "Recruitment, consulting, outsourcing and software development for modern enterprises. Headquartered in Visakhapatnam, India — serving clients across India, GCC and APAC.",
+    "Recruitment, consulting, outsourcing and software development for modern enterprises. Headquartered in Visakhapatnam, India — serving clients across India.",
   keywords: [
     "recruitment",
     "staffing",

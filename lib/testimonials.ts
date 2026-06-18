@@ -72,10 +72,10 @@ export const testimonials: Testimonial[] = [
 ];
 
 export const stats = [
-  { label: "Talent placed", value: 12500, suffix: "+" },
-  { label: "Enterprise clients", value: 180, suffix: "+" },
+  { label: "Talent placed", value: 300, suffix: "+" },
+  { label: "Enterprise clients", value: 30, suffix: "+" },
   { label: "Avg. time-to-hire", value: 14, suffix: " days" },
-  { label: "Retention at 12mo", value: 96, suffix: "%" },
+  { label: "Retention at 12mo", value: 92, suffix: "%" },
 ];
 
 export const trustedBy = [

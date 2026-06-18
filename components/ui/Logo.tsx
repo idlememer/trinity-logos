@@ -13,7 +13,7 @@ type LogoProps = {
 
 /**
  * Brand logo: image mark from /public/logo.png + wordmark text alongside.
- * The image alone is rendered when `variant="mark"`.
+ * Sizes are intentionally generous — the brand should read at a glance.
  */
 export function Logo({
   className,
@@ -23,20 +23,39 @@ export function Logo({
 }: LogoProps) {
   const dims =
     size === "sm"
-      ? { h: "h-10", hpx: 40, title: "text-[15px]", sub: "text-[9.5px]" }
+      ? {
+          // Used in the navbar — modest on mobile, doubled on lg+ per request.
+          h: "h-12 lg:h-24",
+          hpx: 96,
+          title: "text-[17px] lg:text-[34px]",
+          sub: "text-[10.5px] lg:text-[18px]",
+          gap: "gap-3 lg:gap-5",
+        }
       : size === "lg"
-      ? { h: "h-14", hpx: 56, title: "text-lg", sub: "text-[10.5px]" }
-      : { h: "h-11", hpx: 44, title: "text-base", sub: "text-[10px]" };
+      ? {
+          h: "h-16",
+          hpx: 64,
+          title: "text-2xl",
+          sub: "text-[12px]",
+          gap: "gap-3.5",
+        }
+      : {
+          h: "h-14",
+          hpx: 56,
+          title: "text-xl",
+          sub: "text-[11.5px]",
+          gap: "gap-3",
+        };
 
   const inner = (
-    <span className={cn("flex items-center gap-2.5", className)}>
+    <span className={cn("flex items-center", dims.gap, className)}>
       <Image
         src="/logo.png"
         alt="Logos Trinity Technologies LLP"
         width={dims.hpx}
         height={dims.hpx}
         priority
-        sizes="(min-width: 1024px) 56px, 44px"
+        sizes="(min-width: 1024px) 64px, 56px"
         className={cn(
           dims.h,
           "w-auto object-contain transition-transform duration-300 group-hover/logo:scale-[1.04]"
@@ -54,7 +73,7 @@ export function Logo({
           </span>
           <span
             className={cn(
-              "mt-1 font-medium uppercase tracking-[0.22em] text-navy-700/70 dark:text-navy-200/70",
+              "mt-1.5 font-medium uppercase tracking-[0.22em] text-navy-700/70 dark:text-navy-200/70",
               dims.sub
             )}
           >
