@@ -146,7 +146,7 @@ export function Footer() {
               id="newsletter-email"
               type="email"
               required
-              placeholder="you@company.com"
+              placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="h-11 flex-1 rounded-full border border-navy-200 bg-white px-4 text-sm text-navy-900 placeholder:text-navy-600/50 focus:border-navy-700 focus:outline-none dark:border-white/10 dark:bg-navy-950/50 dark:text-white dark:placeholder:text-navy-300/40"

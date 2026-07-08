@@ -27,7 +27,7 @@ export function About() {
             </Reveal>
             <Reveal delay={0.2}>
               <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-navy-700 dark:text-navy-200/85">
-                Founded in Visakhapatnam in {2021}, Logos Trinity Technologies
+                Established in Visakhapatnam in {2026}, Logos Trinity Technologies
                 LLP is a modern recruitment ecosystem, an enterprise consulting
                 house, and a software engineering studio — all under one roof.
               </p>
@@ -89,12 +89,12 @@ export function About() {
                   </span>
                   <div>
                     <p className="font-display text-base font-semibold text-navy-900 dark:text-white">
-                      5 years. 300+ placements. 0 dropped commitments.
+                      Established 2026. Every commitment kept.
                     </p>
                     <p className="mt-2 text-sm leading-relaxed text-navy-700 dark:text-navy-200/80">
-                      From a 3-person team in Visakhapatnam to a growing
-                      multi-city operation serving enterprises across India —
-                      we've grown without compromising on craft.
+                      A focused Visakhapatnam team backed by decades of prior
+                      experience across recruitment, consulting and
+                      engineering — building for the long run.
                     </p>
                   </div>
                 </div>

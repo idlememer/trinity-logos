@@ -2,7 +2,7 @@ export const company = {
   legalName: "Logos Trinity Technologies LLP",
   shortName: "Logos Trinity",
   tagline: "Empowering Talent. Building Technology. Transforming Businesses.",
-  email: "Hr@logostrinitytechnologies.com",
+  email: "info@logostrinitytechnologies.com",
   phone: "+91 99492 22113",
   phoneRaw: "+919949222113",
   website: "www.logostrinitytechnologies.com",
@@ -15,7 +15,7 @@ export const company = {
     zip: "530041",
     country: "India",
   },
-  founded: 2021,
+  founded: 2026,
   social: {
     linkedin: "https://www.linkedin.com/",
     twitter: "https://x.com/",

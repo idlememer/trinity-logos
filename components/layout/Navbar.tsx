@@ -31,13 +31,32 @@ const NAV_ITEMS: NavItem[] = [
 export function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = React.useState(false);
+  const [hidden, setHidden] = React.useState(false);
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [megaOpen, setMegaOpen] = React.useState<string | null>(null);
   const closeTimer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+  const lastScroll = React.useRef(0);
 
   const { scrollY } = useScroll();
   useMotionValueEvent(scrollY, "change", (v) => {
     setScrolled(v > 32);
+
+    const delta = v - lastScroll.current;
+
+    // Always show near the top of the page
+    if (v < 50) {
+      setHidden(false);
+    }
+    // Scrolling down (past a small hysteresis threshold) → hide
+    else if (delta > 5 && v > 120 && !mobileOpen && megaOpen === null) {
+      setHidden(true);
+    }
+    // Even the slightest scroll up → show
+    else if (delta < -2) {
+      setHidden(false);
+    }
+
+    lastScroll.current = v;
   });
 
   React.useEffect(() => {
@@ -69,8 +88,17 @@ export function Navbar() {
   };
 
   return (
-    <div
-      className="fixed inset-x-0 top-0 z-50"
+    <motion.div
+      animate={{
+        y: hidden ? -110 : 0,
+        opacity: hidden ? 0 : 1,
+      }}
+      transition={{
+        y: { type: "spring", stiffness: 130, damping: 26, mass: 0.75 },
+        opacity: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
+      }}
+      style={{ pointerEvents: hidden ? "none" : "auto" }}
+      className="fixed inset-x-0 top-0 z-50 will-change-transform"
       onMouseLeave={scheduleClose}
     >
       <div
@@ -151,9 +179,16 @@ export function Navbar() {
             </Link>
             <Link
               href="/contact"
-              className="hidden md:inline-flex btn-primary !px-5 !py-2.5 text-[13px] lg:!px-7 lg:!py-3.5 lg:text-base"
+              className="hidden md:inline-flex btn-primary items-center !gap-2.5 !px-5 !py-2 lg:!px-6 lg:!py-2.5"
             >
-              Join Us Now
+              <span className="flex flex-col items-start leading-[1.1] text-left">
+                <span className="text-[13px] font-semibold uppercase tracking-wide lg:text-[15px]">
+                  Join Us
+                </span>
+                <span className="text-[11px] font-medium uppercase tracking-[0.14em] opacity-90 lg:text-[13px]">
+                  Now
+                </span>
+              </span>
               <ArrowRight size={16} className="lg:hidden" />
               <ArrowRight size={18} className="hidden lg:inline" />
             </Link>
@@ -292,9 +327,16 @@ export function Navbar() {
                 <ThemeToggle />
                 <Link
                   href="/contact"
-                  className="btn-primary flex-1 !py-3 text-sm"
+                  className="btn-primary flex-1 items-center !gap-2.5 !py-2.5"
                 >
-                  Join Us Now
+                  <span className="flex flex-col items-start leading-[1.1] text-left">
+                    <span className="text-[13px] font-semibold uppercase tracking-wide">
+                      Join Us
+                    </span>
+                    <span className="text-[11px] font-medium uppercase tracking-[0.14em] opacity-90">
+                      Now
+                    </span>
+                  </span>
                   <ArrowRight size={16} />
                 </Link>
               </div>
@@ -302,6 +344,6 @@ export function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 }

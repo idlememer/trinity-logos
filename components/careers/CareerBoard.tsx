@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Reveal, RevealStagger, RevealItem } from "@/components/ui/Reveal";
 import { Search, MapPin, Briefcase, Bolt, ArrowUpRight } from "@/lib/icons";
 import { jobs, departments, locations, type Job } from "@/lib/jobs";
+import { company } from "@/lib/company";
 import { cn } from "@/lib/utils";
 
 const types = ["All", "Full-time", "Contract", "Contract-to-Hire"] as const;
@@ -105,10 +106,10 @@ export function CareerBoard() {
               <p className="mt-2 text-sm text-navy-700 dark:text-navy-200/80">
                 Drop your CV at{" "}
                 <a
-                  href="mailto:Hr@logostrinitytechnologies.com"
+                  href={`mailto:${company.email}`}
                   className="text-navy-700 hover:underline dark:text-navy-300"
                 >
-                  Hr@logostrinitytechnologies.com
+                  {company.email}
                 </a>{" "}
                 — we'll alert you the moment a fit opens up.
               </p>
