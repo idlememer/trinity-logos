@@ -67,7 +67,7 @@ export function Services() {
                 short={s.short}
                 bullets={s.bullets}
                 icon={s.icon as React.ComponentProps<typeof ServiceIcon>["name"]}
-                href={`/services#${s.slug}`}
+                href={`/services/${s.slug}`}
                 category={s.category}
               />
             </RevealItem>

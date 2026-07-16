@@ -13,7 +13,12 @@ type LogoProps = {
 
 /**
  * Brand logo: image mark from /public/logo.png + wordmark text alongside.
- * Both wordmark lines share the same left edge for clean alignment.
+ * The image is rendered at a comfortable size but with a request-width 2×
+ * the display size so it stays crisp on high-DPI screens.
+ *
+ * In the navbar the surrounding pill uses overflow-visible, so the image
+ * can visually overflow the pill (making the mark feel prominent) without
+ * inflating the navbar's actual height.
  */
 export function Logo({
   className,
@@ -24,10 +29,11 @@ export function Logo({
   const dims =
     size === "sm"
       ? {
-          h: "h-14 lg:h-20",
-          hpx: 80,
-          title: "text-[19px] lg:text-[28px]",
-          sub: "text-[10px] lg:text-[14px]",
+          // Rendered bigger than the pill height — allowed to overflow.
+          h: "h-16 lg:h-24",
+          hpx: 96,
+          title: "text-[19px] lg:text-[26px]",
+          sub: "text-[10px] lg:text-[13px]",
           gap: "gap-3 lg:gap-4",
         }
       : size === "lg"
@@ -51,13 +57,14 @@ export function Logo({
       <Image
         src="/logo.png"
         alt="Logos Trinity Technologies LLP"
-        width={dims.hpx}
-        height={dims.hpx}
+        width={dims.hpx * 2}
+        height={dims.hpx * 2}
         priority
-        sizes="(min-width: 1024px) 80px, 56px"
+        quality={90}
+        sizes="(min-width: 1024px) 192px, 128px"
         className={cn(
           dims.h,
-          "w-auto object-contain transition-transform duration-300 group-hover/logo:scale-[1.04]"
+          "w-auto object-contain drop-shadow-[0_2px_6px_rgba(0,28,102,0.12)] transition-transform duration-300 group-hover/logo:scale-[1.04]"
         )}
       />
       {variant === "full" && (

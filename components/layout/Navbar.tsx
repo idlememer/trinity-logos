@@ -111,10 +111,10 @@ export function Navbar() {
           layout
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           className={cn(
-            "flex w-full max-w-7xl items-center justify-between rounded-full border px-4 py-2.5 transition-all duration-500 sm:px-5 lg:px-7 lg:py-3.5",
+            "flex w-full max-w-7xl items-center justify-between overflow-visible rounded-full border px-4 py-2.5 transition-colors duration-300 sm:px-5 lg:px-7 lg:py-3.5",
             scrolled
-              ? "border-navy-700/15 bg-white/85 shadow-card backdrop-blur-2xl dark:border-white/10 dark:bg-navy-950/70"
-              : "border-navy-700/8 bg-white/70 backdrop-blur-xl dark:border-transparent dark:bg-navy-950/35"
+              ? "border-navy-700/15 bg-white shadow-[0_4px_16px_-8px_rgba(0,28,102,0.15)] dark:border-white/10 dark:bg-navy-950"
+              : "border-navy-700/10 bg-white dark:border-white/10 dark:bg-navy-950"
           )}
         >
           <Logo size="sm" />
@@ -257,7 +257,7 @@ export function Navbar() {
                       }}
                     >
                       <Link
-                        href={`/services#${s.slug}`}
+                        href={`/services/${s.slug}`}
                         onClick={() => openMega(null)}
                         className="group relative flex items-start gap-3 rounded-xl border border-transparent px-3 py-2.5 transition-all hover:border-navy-700/10 hover:bg-mist-100 dark:hover:border-white/10 dark:hover:bg-white/[0.04]"
                       >

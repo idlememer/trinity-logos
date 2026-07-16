@@ -155,7 +155,7 @@ function JobCard({ job }: { job: Job }) {
   return (
     <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.3 }}>
       <Link
-        href={`/careers#${job.id}`}
+        href={`/careers/${job.id}`}
         className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-navy-200/60 bg-white p-6 ring-border transition-all hover:border-navy-700/30 dark:border-white/10 dark:bg-white/[0.03] dark:hover:border-navy-400/40"
       >
         {job.urgent && (

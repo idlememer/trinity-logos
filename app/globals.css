@@ -169,19 +169,13 @@
   }
 
   .btn-primary {
-    @apply relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-medium text-white transition-all duration-300;
-    background: linear-gradient(135deg, #ff924d 0%, #ff7a00 50%, #e66a00 100%);
-    box-shadow:
-      0 1px 0 rgba(255, 255, 255, 0.35) inset,
-      0 -10px 30px rgba(255, 122, 0, 0.25) inset,
-      0 8px 24px -8px rgba(255, 122, 0, 0.4);
+    @apply relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-medium text-white transition-colors duration-200;
+    background: #ff7a00;
+    box-shadow: 0 2px 6px -2px rgba(255, 122, 0, 0.35);
   }
   .btn-primary:hover {
-    transform: translateY(-1px);
-    box-shadow:
-      0 1px 0 rgba(255, 255, 255, 0.35) inset,
-      0 -10px 30px rgba(255, 122, 0, 0.35) inset,
-      0 16px 40px -10px rgba(255, 122, 0, 0.55);
+    background: #e66a00;
+    box-shadow: 0 4px 12px -3px rgba(255, 122, 0, 0.5);
   }
 
   .btn-ghost {

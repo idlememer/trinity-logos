@@ -156,8 +156,7 @@ function JobRow({ job }: { job: Job }) {
   return (
     <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
       <Link
-        href={`#${job.id}`}
-        id={job.id}
+        href={`/careers/${job.id}`}
         className={cn(
           "group relative flex scroll-mt-32 flex-col gap-5 overflow-hidden rounded-3xl border border-navy-700/10 bg-white p-6 ring-border transition-all hover:border-navy-700/30 hover:shadow-card dark:border-white/10 dark:bg-white/[0.03] dark:hover:border-navy-400/40",
           "lg:flex-row lg:items-center lg:gap-6"

@@ -95,7 +95,7 @@ export function Footer() {
               title="Services"
               links={services.slice(0, 6).map((s) => ({
                 label: s.name,
-                href: `/services#${s.slug}`,
+                href: `/services/${s.slug}`,
               }))}
             />
             <FooterColumn
