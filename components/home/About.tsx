@@ -9,22 +9,32 @@ import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { stats } from "@/lib/testimonials";
 import { Target, Sparkle, Rocket, ArrowRight } from "@/lib/icons";
 
-export function About() {
+type AboutProps = {
+  /** Hide the "About Logos Trinity" eyebrow + big H2 when a parent page
+   *  already introduces the section (e.g. /about with a PageHeader). */
+  showHeading?: boolean;
+};
+
+export function About({ showHeading = true }: AboutProps) {
   return (
     <section id="about" className="section">
       <div className="container relative">
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-16">
           {/* Left side: copy */}
           <div className="lg:col-span-6">
-            <Reveal>
-              <SectionLabel>About Logos Trinity</SectionLabel>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <h2 className="mt-5 font-display text-display-md text-balance font-semibold tracking-tight text-navy-900 dark:text-white">
-                A technology-driven workforce partner — built for the next
-                decade of enterprise.
-              </h2>
-            </Reveal>
+            {showHeading && (
+              <>
+                <Reveal>
+                  <SectionLabel>About Logos Trinity</SectionLabel>
+                </Reveal>
+                <Reveal delay={0.1}>
+                  <h2 className="mt-5 font-display text-display-md text-balance font-semibold tracking-tight text-navy-900 dark:text-white">
+                    A technology-driven workforce partner — built for the next
+                    decade of enterprise.
+                  </h2>
+                </Reveal>
+              </>
+            )}
             <Reveal delay={0.2}>
               <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-navy-700 dark:text-navy-200/85">
                 Established in Visakhapatnam in {2026}, Logos Trinity Technologies

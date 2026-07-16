@@ -56,12 +56,14 @@ export function ContactForm() {
       subjectLine
     )}&body=${encodeURIComponent(body)}`;
 
-    // Give the browser a beat to update the UI before triggering the OS handler.
-    await new Promise((r) => setTimeout(r, 150));
-    window.location.href = href;
-
+    // Flip to the success view FIRST so the user gets clear feedback
+    // regardless of whether the OS mail handler resolves cleanly.
     setSubmitting(false);
     setSubmitted(true);
+
+    // Then hand off to the mail client on the next tick.
+    await new Promise((r) => setTimeout(r, 0));
+    window.location.href = href;
   };
 
   return (

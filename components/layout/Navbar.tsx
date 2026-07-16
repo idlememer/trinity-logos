@@ -179,6 +179,7 @@ export function Navbar() {
             </Link>
             <Link
               href="/contact"
+              aria-label="Join Us Now — go to contact"
               className="hidden md:inline-flex btn-primary items-center !gap-2.5 !px-5 !py-2 lg:!px-6 lg:!py-2.5"
             >
               <span className="flex flex-col items-start leading-[1.1] text-left">
@@ -327,6 +328,7 @@ export function Navbar() {
                 <ThemeToggle />
                 <Link
                   href="/contact"
+                  aria-label="Join Us Now — go to contact"
                   className="btn-primary flex-1 items-center !gap-2.5 !py-2.5"
                 >
                   <span className="flex flex-col items-start leading-[1.1] text-left">

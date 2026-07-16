@@ -72,7 +72,7 @@ export default function AboutPage() {
         description="Logos Trinity Technologies LLP is a modern recruitment ecosystem, an enterprise consulting house, and a software engineering studio — all under one roof. Born in Visakhapatnam, built for the world."
       />
 
-      <About />
+      <About showHeading={false} />
 
       {/* Timeline */}
       <section id="timeline" className="section">
@@ -91,7 +91,7 @@ export default function AboutPage() {
 
           <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-5">
             {timeline.map((t, i) => (
-              <Reveal key={t.year} delay={i * 0.06}>
+              <Reveal key={`${t.year}-${i}`} delay={i * 0.06}>
                 <article className="relative h-full overflow-hidden rounded-3xl border border-navy-200/60 bg-white p-6 ring-border dark:border-white/10 dark:bg-white/[0.03]">
                   <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-navy-700 dark:text-navy-300">
                     {t.year}
