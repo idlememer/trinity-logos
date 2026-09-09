@@ -658,13 +658,13 @@ export const services: Service[] = [
     slug: "business-contracts",
     name: "Business Establishment Contracts",
     short:
-      "End-to-end contracts for corporates, restaurants, hospitals and other commercial organizations.",
+      "End-to-end setup for corporates, restaurants, hospitals and other commercial establishments.",
     description:
-      "A single accountable partner for hiring, staffing, compliance, technology, and day-to-day operations — bundled under one master agreement.",
+      "A single accountable partner for interiors, equipment, systems and licences — bundled under one master service agreement.",
     bullets: [
-      "Turnkey workforce setup",
-      "Compliance + payroll bundled",
-      "Multi-location coverage",
+      "Turnkey fit-out & equipment",
+      "Sector-specific systems",
+      "Licences & compliance",
       "Single monthly invoice",
     ],
     icon: "building",

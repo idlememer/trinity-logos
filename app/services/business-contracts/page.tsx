@@ -10,7 +10,6 @@ import {
   ArrowUpRight,
   Check,
   Building,
-  Users,
   Cpu,
   Shield,
 } from "@/lib/icons";
@@ -18,7 +17,7 @@ import {
 export const metadata: Metadata = {
   title: "Business Establishment Contracts — turnkey setup for every sector",
   description:
-    "End-to-end contracts for restaurants, software companies, hospitals, corporate offices, retail and manufacturing. From furniture to workforce to technology — every aspect handled by one accountable partner.",
+    "End-to-end contracts for restaurants, software companies, hospitals, corporate offices, retail and manufacturing. Interiors, equipment, systems and licences — every aspect handled by one accountable partner.",
 };
 
 const mailtoHref = `mailto:${company.email}?subject=${encodeURIComponent(
@@ -32,7 +31,7 @@ const mailtoHref = `mailto:${company.email}?subject=${encodeURIComponent(
     "Sector (restaurant / software / hospital / corporate / retail / manufacturing / other): ",
     "Location(s): ",
     "Expected go-live: ",
-    "Approximate size / headcount: ",
+    "Approximate size (sq ft / seats / beds): ",
     "Notes: ",
     "",
     "— sent from logostrinitytechnologies.com/services/business-contracts",
@@ -117,12 +116,6 @@ const pillars = [
       "Interior fit-out, furniture, fixtures, equipment and signage — sourced, delivered, installed and signed off.",
   },
   {
-    Icon: Users,
-    title: "Workforce",
-    body:
-      "Every role from executive to floor staff — sourced, screened, hired, on-boarded, trained.",
-  },
-  {
     Icon: Cpu,
     title: "Systems & technology",
     body:
@@ -150,15 +143,6 @@ const sectors: Sector[] = [
           "Commercial kitchen equipment & refrigeration",
           "Dining furniture, décor & signage",
           "POS terminals & bar counters",
-        ],
-      },
-      {
-        label: "People",
-        items: [
-          "Head chef, sous-chefs, kitchen crew",
-          "Servers, hosts, bar staff, stewards",
-          "Outlet managers & shift leads",
-          "Cleaning & security staffing",
         ],
       },
       {
@@ -197,15 +181,6 @@ const sectors: Sector[] = [
         ],
       },
       {
-        label: "People",
-        items: [
-          "Engineers, DevOps, designers, PMs",
-          "Data, ML and platform specialists",
-          "HR, admin, IT-support, security",
-          "Sales & pre-sales, if required",
-        ],
-      },
-      {
         label: "Systems",
         items: [
           "Cloud accounts (AWS / GCP / Azure) provisioned",
@@ -238,15 +213,6 @@ const sectors: Sector[] = [
           "Medical equipment & imaging suites",
           "Laboratory instruments",
           "Biomedical waste-handling infrastructure",
-        ],
-      },
-      {
-        label: "People",
-        items: [
-          "Consultants, resident doctors, nurses",
-          "OT technicians, radiographers, lab staff",
-          "Front-desk, billing, ward admin",
-          "Housekeeping, security, ambulance crew",
         ],
       },
       {
@@ -285,15 +251,6 @@ const sectors: Sector[] = [
         ],
       },
       {
-        label: "People",
-        items: [
-          "Executive assistants & reception",
-          "IT support, admin, HR",
-          "Cafeteria, housekeeping, security",
-          "Function-specific talent (finance, legal, ops)",
-        ],
-      },
-      {
         label: "Systems",
         items: [
           "Networking, Wi-Fi, VoIP, access control",
@@ -329,15 +286,6 @@ const sectors: Sector[] = [
         ],
       },
       {
-        label: "People",
-        items: [
-          "Store managers & assistant managers",
-          "Cashiers, floor staff, stockers",
-          "Loss-prevention & security",
-          "Regional & area managers",
-        ],
-      },
-      {
         label: "Systems",
         items: [
           "POS + inventory + billing",
@@ -370,15 +318,6 @@ const sectors: Sector[] = [
           "Machinery procurement & installation",
           "Safety, PPE, first-response setup",
           "Warehousing & material handling",
-        ],
-      },
-      {
-        label: "People",
-        items: [
-          "Operators, supervisors, quality inspectors",
-          "Safety officers & maintenance crew",
-          "Admin, HR, finance, procurement",
-          "Contract-labour management",
         ],
       },
       {
@@ -420,19 +359,19 @@ const phases = [
     n: "03",
     title: "Mobilisation",
     body:
-      "Parallel workstreams: fit-out & equipment, workforce recruitment, systems provisioning, licensing. Weekly progress dashboards to the client.",
+      "Parallel workstreams: fit-out & equipment, systems provisioning, licensing and statutory registrations. Weekly progress dashboards to the client.",
   },
   {
     n: "04",
     title: "Go-live",
     body:
-      "Dry runs, snag lists, staff training, statutory sign-offs. Day-1 support on-site until steady-state confirmed.",
+      "Dry runs, snag lists, statutory sign-offs, and vendor handover. Day-1 support on-site until steady-state confirmed.",
   },
   {
     n: "05",
     title: "Steady-state operations",
     body:
-      "Named delivery lead. Monthly business reviews with SLA scorecards, quarterly executive readouts, continuous improvement backlog.",
+      "Named delivery lead. Monthly SLA scorecards, quarterly executive readouts, continuous improvement backlog on systems and compliance.",
   },
 ];
 
@@ -443,11 +382,11 @@ const faqs = [
   },
   {
     q: "How do you price a multi-scope contract like this?",
-    a: "Two components. A one-time transition fee that covers scoping, procurement management and mobilisation. A monthly managed-service fee that covers ongoing workforce, compliance, systems support and account leadership. Big-ticket assets (equipment, furniture, machinery) are billed at cost.",
+    a: "Two components. A one-time transition fee that covers scoping, procurement management, mobilisation and licensing. A monthly managed-service fee that covers ongoing systems support, compliance filings and account leadership. Big-ticket assets (equipment, furniture, machinery) are billed at cost.",
   },
   {
-    q: "Can you scope only part of it — say, workforce and compliance but not fit-out?",
-    a: "Yes. The four pillars can be engaged in any combination. Many clients start with a subset and expand as they see the operating rhythm work.",
+    q: "Can you scope only part of it — say, compliance but not fit-out?",
+    a: "Yes. The three pillars can be engaged in any combination. Many clients start with a subset (e.g. just fit-out + licensing) and expand as they see the operating rhythm work.",
   },
   {
     q: "What sectors do you not take on?",
@@ -533,19 +472,14 @@ function SectorCard({ sector, index }: { sector: Sector; index: number }) {
         </div>
       </div>
 
-      {/* Four groups grid */}
-      <div className="grid grid-cols-1 gap-0 sm:grid-cols-2">
-        {sector.groups.map((g, i) => (
-          <div
-            key={g.label}
-            className={`border-navy-700/10 p-6 dark:border-white/5 ${
-              i < 2 ? "sm:border-b" : ""
-            } ${i % 2 === 0 ? "sm:border-r" : ""} border-b last:border-b-0`}
-          >
+      {/* Three groups — vertical stack with dividers */}
+      <div className="divide-y divide-navy-700/10 dark:divide-white/5">
+        {sector.groups.map((g) => (
+          <div key={g.label} className="p-6">
             <p className="text-[10.5px] font-semibold uppercase tracking-[0.2em] text-navy-700 dark:text-navy-300">
               {g.label}
             </p>
-            <ul className="mt-3 space-y-2">
+            <ul className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
               {g.items.map((item) => (
                 <li
                   key={item}
@@ -595,7 +529,7 @@ export default function BusinessContractsPage() {
             From scratch to steady-state.
           </>
         }
-        description="Furniture, workforce, systems, licences — everything a business needs to open its doors and run, tailored to your sector. One MSA, one accountable lead, one monthly invoice."
+        description="Interiors, equipment, systems and licences — everything a business needs to open its doors and run, tailored to your sector. One MSA, one accountable lead, one monthly invoice."
       >
         <div className="flex flex-wrap items-center gap-3">
           <a href={mailtoHref} className="btn-primary">
@@ -613,24 +547,24 @@ export default function BusinessContractsPage() {
         <div className="container">
           <div className="mx-auto max-w-3xl">
             <Reveal>
-              <SectionLabel>The four pillars</SectionLabel>
+              <SectionLabel>The three pillars</SectionLabel>
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="mt-5 font-display text-display-md text-balance font-semibold tracking-tight text-navy-900 dark:text-white">
-                Every establishment we hand over is built on the same four
+                Every establishment we hand over is built on the same three
                 pillars.
               </h2>
             </Reveal>
             <Reveal delay={0.2}>
               <p className="mt-5 text-pretty leading-relaxed text-navy-700 dark:text-navy-200/85 sm:text-lg">
                 The specifics change from a restaurant to a hospital to a
-                software office — but every project touches these four things.
-                We own all four so nothing falls between vendors.
+                software office — but every project touches these three things.
+                We own all three so nothing falls between vendors.
               </p>
             </Reveal>
           </div>
 
-          <RevealStagger className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <RevealStagger className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-3">
             {pillars.map((p) => (
               <RevealItem key={p.title}>
                 <PillarCard Icon={p.Icon} title={p.title} body={p.body} />
@@ -655,8 +589,8 @@ export default function BusinessContractsPage() {
             <Reveal delay={0.2}>
               <p className="mt-5 text-pretty leading-relaxed text-navy-700 dark:text-navy-200/85 sm:text-lg">
                 Pick the sector closest to your business — every card lists the
-                exact physical setup, people, systems and compliance we take on
-                for that kind of establishment.
+                exact physical setup, systems and compliance we take on for
+                that kind of establishment.
               </p>
             </Reveal>
           </div>
@@ -750,7 +684,7 @@ export default function BusinessContractsPage() {
                   </h3>
                   <p className="mt-4 leading-relaxed text-navy-700 dark:text-navy-200/85">
                     We are the single accountability point for every function
-                    inside the four pillars. Sub-contracts, vendor coordination,
+                    inside the three pillars. Sub-contracts, vendor coordination,
                     and internal team management are handled inside our
                     engagement — never dropped on you.
                   </p>
