@@ -654,6 +654,85 @@ export const services: Service[] = [
       },
     ],
   },
+  {
+    slug: "business-contracts",
+    name: "Business Establishment Contracts",
+    short:
+      "End-to-end contracts for corporates, restaurants, hospitals and other commercial organizations.",
+    description:
+      "A single accountable partner for hiring, staffing, compliance, technology, and day-to-day operations — bundled under one master agreement.",
+    bullets: [
+      "Turnkey workforce setup",
+      "Compliance + payroll bundled",
+      "Multi-location coverage",
+      "Single monthly invoice",
+    ],
+    icon: "building",
+    category: "Strategy",
+    overview: [
+      "When an establishment needs one partner to run the entire people-and-operations layer — hiring, staffing, statutory compliance, payroll, technology support, and day-to-day operations — our end-to-end contract practice takes on the whole scope.",
+      "We work with corporate offices, restaurant groups, hospitals, and multi-location commercial organizations that want the operational discipline of an in-house team without carrying the fixed cost or the recruitment overhead.",
+      "One master service agreement. One accountable delivery lead. One monthly invoice. Every function underneath — from an executive assistant to a floor supervisor to compliance filings — is our responsibility.",
+    ],
+    whatWeDeliver: [
+      "Turnkey workforce setup — from executive to front-line staff",
+      "Full statutory compliance across PF, ESIC, PT, TDS, labour law",
+      "Onboarding, training, and ongoing L&D calendars",
+      "Payroll, benefits administration, and HR helpdesk under our SLA",
+      "Technology infrastructure setup — laptops, connectivity, ERP/POS support",
+      "Facility support coordination with client-nominated or partner vendors",
+      "Monthly business reviews with SLA scorecards, quarterly executive readouts",
+    ],
+    howWeWork: [
+      {
+        title: "Discovery & scoping",
+        body: "Multi-day walkthrough of the establishment. We map roles, volumes, existing tooling, compliance posture, and pain points. Output: a written operating-model proposal + risk register.",
+      },
+      {
+        title: "Master service agreement",
+        body: "One MSA covering every scope area, with pricing, SLAs, escalation matrices, and business-continuity provisions. No parallel per-function contracts.",
+      },
+      {
+        title: "Mobilisation & transition",
+        body: "Team assembly, technology stand-up, statutory registrations, and a documented cutover. Typical duration: 4–8 weeks depending on establishment size.",
+      },
+      {
+        title: "Steady-state operations",
+        body: "Named delivery lead runs the account. Weekly ops stand-ups with your representative, monthly business reviews with leadership, quarterly optimisation cycles.",
+      },
+    ],
+    whoItsFor: [
+      "Corporate offices setting up or scaling their India presence without local ops overhead",
+      "Restaurant groups needing multi-outlet hiring, roster management, and workforce compliance",
+      "Hospitals and healthcare facilities looking for one accountable HR + operations partner across shifts",
+      "Retail and manufacturing chains scaling across multiple locations under a single operating standard",
+      "Any commercial organisation wanting to convert a fixed cost base to a managed, SLA-backed service",
+    ],
+    engagement: {
+      model: "Master service agreement · 12–36 month term",
+      kickoff: "≤ 4 weeks including transition",
+      pricing: "Per-headcount monthly + one-time transition fee",
+      sla: "Tiered SLAs across hiring, compliance, and operations",
+    },
+    faqs: [
+      {
+        q: "How is this different from your other services (Outsourcing, Staffing, Workforce Management)?",
+        a: "Those practices can each be engaged on their own. Business Establishment Contracts is the bundled option — one MSA, one accountable lead, and one price for the entire people-and-operations layer of an establishment. If you only need one function, engage that practice directly instead.",
+      },
+      {
+        q: "Do you handle facility management, security, or vendor coordination?",
+        a: "We coordinate with vendors you've appointed and bring in trusted partners where you don't have one. We remain the single accountability point for delivery, but we don't take on facility functions we're not licensed for (e.g. security).",
+      },
+      {
+        q: "Which sectors do you have the most experience with?",
+        a: "Corporate offices, restaurants & F&B, hospitals & healthcare, and multi-location retail. The operating model is adapted to sector-specific compliance and cadence — for example, shift management dominates hospital contracts; outlet-level hiring velocity dominates restaurant contracts.",
+      },
+      {
+        q: "What happens if we want to exit the contract early?",
+        a: "Every MSA includes a defined exit clause with notice period, knowledge-transfer obligations on our side, and prorated fees. We work to make our clients successful — not lock them in.",
+      },
+    ],
+  },
 ];
 
 export const serviceCategories = [

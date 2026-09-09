@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkle } from "@/lib/icons";
+import { ArrowRight, Sparkle, Briefcase } from "@/lib/icons";
 import { GradientOrbs } from "@/components/ui/GradientOrbs";
 import { Tilt } from "@/components/ui/Tilt";
 import { Spotlight } from "@/components/ui/Spotlight";
@@ -66,6 +66,83 @@ export function Hero() {
               Discover Opportunities
             </Link>
           </motion.div>
+
+          {/* Standout announcement banner — end-to-end contracts */}
+          <motion.aside
+            initial={{ opacity: 0, y: 14, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className="mx-auto mt-12 max-w-3xl"
+          >
+            <Link
+              href="/services/business-contracts"
+              aria-label="Learn about end-to-end business establishment contracts"
+              className="group relative block overflow-hidden rounded-3xl p-[1.5px] shadow-[0_18px_40px_-16px_rgba(0,56,184,0.45)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_50px_-14px_rgba(0,56,184,0.6)]"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(255,255,255,0.35) 0%, rgba(255,122,0,0.55) 45%, rgba(255,255,255,0.25) 100%)",
+              }}
+            >
+              {/* Inner navy card */}
+              <span
+                className="relative flex flex-col items-stretch gap-4 rounded-[calc(1.5rem-1.5px)] p-5 sm:flex-row sm:items-center sm:gap-5 sm:p-6"
+                style={{
+                  background:
+                    "linear-gradient(135deg, #001C66 0%, #002C8C 50%, #0038B8 100%)",
+                }}
+              >
+                {/* Decorative glow on top-right */}
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-flame-500/40 blur-3xl transition-opacity duration-500 group-hover:opacity-80"
+                />
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -bottom-20 -left-16 h-40 w-40 rounded-full bg-navy-500/40 blur-3xl"
+                />
+                {/* Subtle sheen sweep on hover */}
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-1000 group-hover:translate-x-full"
+                />
+
+                <span className="relative flex items-center gap-3 sm:contents">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/15 text-white ring-1 ring-white/20 backdrop-blur-sm">
+                    <Briefcase size={22} />
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-flame-500 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white shadow-[0_2px_6px_-2px_rgba(255,122,0,0.6)] sm:hidden">
+                    New
+                  </span>
+                </span>
+
+                <span className="relative flex-1 min-w-0">
+                  <span className="hidden items-center gap-2 sm:flex">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-flame-500 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white shadow-[0_2px_6px_-2px_rgba(255,122,0,0.7)]">
+                      New
+                    </span>
+                    <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/70">
+                      End-to-end contracts
+                    </span>
+                  </span>
+                  <p className="mt-1.5 text-[15px] leading-snug text-white/95 sm:text-base">
+                    Comprehensive solutions for{" "}
+                    <span className="font-bold text-white">
+                      corporates, restaurants, hospitals
+                    </span>{" "}
+                    and other commercial organizations.
+                  </p>
+                </span>
+
+                <span className="relative inline-flex shrink-0 items-center gap-1.5 self-start rounded-full bg-flame-500 px-5 py-2.5 text-[13px] font-semibold text-white shadow-[0_4px_14px_-4px_rgba(255,122,0,0.65)] transition-all group-hover:bg-flame-400 group-hover:shadow-[0_6px_18px_-4px_rgba(255,122,0,0.85)] sm:self-center">
+                  Enquire
+                  <ArrowRight
+                    size={14}
+                    className="transition-transform group-hover:translate-x-0.5"
+                  />
+                </span>
+              </span>
+            </Link>
+          </motion.aside>
         </div>
 
         {/* Single, clean visual element — no floating cards */}

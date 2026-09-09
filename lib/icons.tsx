@@ -250,6 +250,14 @@ export const Rocket = (p: IconProps) => (
   </svg>
 );
 
+export const Building = (p: IconProps) => (
+  <svg {...base(p)}>
+    <rect x="3" y="3" width="10" height="18" rx="1.5" />
+    <rect x="13" y="8" width="8" height="13" rx="1.5" />
+    <path d="M6 7h4M6 11h4M6 15h4M16 12h2M16 16h2" />
+  </svg>
+);
+
 export type IconName =
   | "users"
   | "userPlus"
@@ -259,7 +267,8 @@ export type IconName =
   | "server"
   | "search"
   | "shield"
-  | "briefcase";
+  | "briefcase"
+  | "building";
 
 export function ServiceIcon({ name, ...props }: IconProps & { name: IconName }) {
   switch (name) {
@@ -281,5 +290,7 @@ export function ServiceIcon({ name, ...props }: IconProps & { name: IconName }) 
       return <Shield {...props} />;
     case "briefcase":
       return <Briefcase {...props} />;
+    case "building":
+      return <Building {...props} />;
   }
 }
