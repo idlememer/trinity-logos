@@ -13,13 +13,20 @@ export type Job = {
     | "Cybersecurity";
   location: string;
   remote: "On-site" | "Hybrid" | "Remote";
-  type: "Full-time" | "Contract" | "Contract-to-Hire";
+  type: "Full-time" | "Contract" | "Contract-to-Hire" | "Internship";
   experience: string;
   salaryRange: string;
   skills: string[];
   posted: string;
   featured?: boolean;
   urgent?: boolean;
+  /**
+   * "new"          — freshly added role (shows a NEW badge)
+   * "opening-soon" — announced but not yet accepting applications
+   * "occupied"     — position already filled; shown read-only
+   * undefined      — standard open role
+   */
+  status?: "new" | "opening-soon" | "occupied";
 
   /** 2–3 short paragraphs describing the role, team, and product context */
   description: string[];
@@ -41,6 +48,7 @@ const commonWhatYouGet = [
 export const jobs: Job[] = [
   {
     id: "LT-2026-001",
+    status: "occupied",
     title: "Senior Java Backend Engineer",
     company: "BFSI Client (Confidential)",
     department: "Engineering",
@@ -92,6 +100,7 @@ export const jobs: Job[] = [
   },
   {
     id: "LT-2026-002",
+    status: "occupied",
     title: "Lead Data Scientist — GenAI",
     company: "Global Retail Major",
     department: "Data & AI",
@@ -141,6 +150,7 @@ export const jobs: Job[] = [
   },
   {
     id: "LT-2026-003",
+    status: "occupied",
     title: "Talent Acquisition Lead",
     company: "Logos Trinity Technologies",
     department: "People",
@@ -189,6 +199,7 @@ export const jobs: Job[] = [
   },
   {
     id: "LT-2026-004",
+    status: "occupied",
     title: "Cloud DevOps Architect",
     company: "Enterprise SaaS",
     department: "Cloud & DevOps",
@@ -237,6 +248,7 @@ export const jobs: Job[] = [
   },
   {
     id: "LT-2026-005",
+    status: "occupied",
     title: "Senior React Engineer",
     company: "FinTech Unicorn",
     department: "Engineering",
@@ -286,6 +298,7 @@ export const jobs: Job[] = [
   },
   {
     id: "LT-2026-006",
+    status: "occupied",
     title: "Application Security Engineer",
     company: "Confidential — Govt. Sector",
     department: "Cybersecurity",
@@ -333,6 +346,7 @@ export const jobs: Job[] = [
   },
   {
     id: "LT-2026-007",
+    status: "occupied",
     title: "Product Manager — Enterprise",
     company: "B2B SaaS",
     department: "Product",
@@ -380,6 +394,7 @@ export const jobs: Job[] = [
   },
   {
     id: "LT-2026-008",
+    status: "occupied",
     title: "Enterprise Sales Manager",
     company: "Logos Trinity Technologies",
     department: "Sales",
@@ -427,6 +442,7 @@ export const jobs: Job[] = [
   },
   {
     id: "LT-2026-009",
+    status: "occupied",
     title: "Site Reliability Engineer (SRE)",
     company: "Healthcare Platform",
     department: "Cloud & DevOps",
@@ -474,6 +490,7 @@ export const jobs: Job[] = [
   },
   {
     id: "LT-2026-010",
+    status: "occupied",
     title: "Operations Lead — Workforce Mgmt",
     company: "Logos Trinity Technologies",
     department: "Operations",
@@ -521,6 +538,7 @@ export const jobs: Job[] = [
   },
   {
     id: "LT-2026-011",
+    status: "occupied",
     title: "ML Platform Engineer",
     company: "AI Startup (Series B)",
     department: "Data & AI",
@@ -569,6 +587,7 @@ export const jobs: Job[] = [
   },
   {
     id: "LT-2026-012",
+    status: "occupied",
     title: "UX Designer — Enterprise SaaS",
     company: "Logistics Tech",
     department: "Product",
@@ -613,6 +632,141 @@ export const jobs: Job[] = [
       "Portfolio walk-through (60 min)",
       "Design exercise + review (2 hrs total)",
       "Team fit + founder (45 min)",
+    ],
+  },
+
+  /* ------------------------------------------------------------------ */
+  /* NEW — Internship openings · Opening Soon                           */
+  /* ------------------------------------------------------------------ */
+  {
+    id: "LT-2027-INT-01",
+    status: "opening-soon",
+    title: "AI Engineer Intern",
+    company: "Logos Trinity Technologies",
+    department: "Data & AI",
+    location: "Visakhapatnam",
+    remote: "On-site",
+    type: "Internship",
+    experience: "Pursuing B.Tech / M.Tech",
+    salaryRange: "Stipend as per policy",
+    skills: [
+      "LLMs (OpenAI / Claude / Gemini)",
+      "Next.js / React",
+      "Node.js / TypeScript",
+      "Prompt engineering",
+      "RAG & embeddings",
+      "SQL",
+    ],
+    posted: "Just announced",
+    featured: true,
+    description: [
+      "As an AI Application Engineer Intern at Logos Trinity Technologies, you'll work alongside our engineering team to build and integrate AI-powered capabilities into our healthcare SaaS platform.",
+      "You will work on conversational AI, database-driven AI assistants, natural-language-to-SQL, voice and speech-based features, image and document understanding, and other emerging AI applications.",
+    ],
+    responsibilities: [
+      "Build and integrate AI-powered chatbots and assistants for customers, doctors, and hospital staff",
+      "Integrate Large Language Models (OpenAI, Claude, Gemini and similar) into production applications",
+      "Build AI systems that connect LLMs with APIs, databases, and internal application tools",
+      "Develop natural-language-to-SQL capabilities so users can query HMS data conversationally",
+      "Build AI-powered features using structured outputs, function/tool calling, prompt engineering, RAG, embeddings and multi-step AI workflows",
+      "Work on voice and speech-to-text capabilities and convert unstructured voice input into structured information",
+      "Experiment with vision and document understanding (e.g. image-to-bill, information extraction)",
+      "Improve AI application performance — prompt optimization, prompt/context caching, token and cost optimization, latency, model selection",
+      "Implement AI evaluation, testing, validation, observability, logging and error-handling workflows",
+      "Research and experiment with emerging AI models, frameworks, APIs and developer tools",
+    ],
+    requirements: [
+      "Pursuing B.Tech / M.Tech in Computer Science, AI/ML, IT, or a related field",
+      "Good proficiency in JavaScript / TypeScript and modern web application development",
+      "Familiarity with Next.js, React, Node.js, APIs and JSON",
+      "Basic to intermediate understanding of SQL and relational databases",
+      "Understanding of LLMs, Generative AI and AI application development",
+      "Familiarity with LLM APIs — OpenAI, Claude, Gemini or similar platforms",
+      "Understanding of prompt engineering, structured outputs, function/tool calling, RAG, embeddings and AI workflows",
+      "Strong problem-solving, experimentation, debugging and analytical skills",
+    ],
+    niceToHave: [
+      "Familiarity with AI-assisted development tools — Claude Code, Cursor, GitHub Copilot, Windsurf, OpenCode or similar",
+      "Exposure to prompt caching, LLM observability, AI evaluation",
+      "Experience with voice AI, vision models, or document extraction",
+      "Python knowledge",
+    ],
+    whatYouGet: [
+      "Full-time internship (preferred)",
+      "Letter of Recommendation for outstanding interns",
+      "Potential Pre-Placement Offer (PPO) for top performers",
+      "Direct mentorship from engineering leadership",
+      "Real-world shipped-to-production exposure, not toy projects",
+    ],
+    process: [
+      "Application review + short screening call (20 min)",
+      "Take-home AI exercise (asynchronous, ~3 hrs)",
+      "Technical conversation on your submission (60 min)",
+      "Culture + hiring-manager chat (30 min)",
+    ],
+  },
+  {
+    id: "LT-2027-INT-02",
+    status: "opening-soon",
+    title: "Full Stack Development Intern",
+    company: "Logos Trinity Technologies",
+    department: "Engineering",
+    location: "Visakhapatnam",
+    remote: "On-site",
+    type: "Internship",
+    experience: "Pursuing B.Tech / M.Tech",
+    salaryRange: "Stipend as per policy",
+    skills: [
+      "TypeScript / JavaScript",
+      "Next.js / React",
+      "Node.js / APIs",
+      "SQL / relational DBs",
+      "REST + JSON",
+      "Git",
+    ],
+    posted: "Just announced",
+    featured: true,
+    description: [
+      "As a Full Stack Development Intern at Logos Trinity Technologies, you'll work with our engineering team to build and ship features across our healthcare SaaS platform — front-end interfaces, back-end APIs, and the glue in between.",
+      "You'll own small end-to-end slices of real product, under the mentorship of senior engineers, with code going to production from your first sprint.",
+    ],
+    responsibilities: [
+      "Build user-facing features in Next.js + React with strict TypeScript",
+      "Design and implement REST APIs in Node.js backed by relational databases",
+      "Model and query data in SQL, including migrations and indexing where relevant",
+      "Integrate third-party and internal APIs with proper error handling",
+      "Write clean, tested code and participate in code reviews",
+      "Collaborate with the AI engineering pod on surfaces that embed LLM-powered features",
+      "Debug issues across the stack and ship clean fixes",
+      "Participate in daily stand-ups, sprint planning and demos",
+    ],
+    requirements: [
+      "Pursuing B.Tech / M.Tech in Computer Science, IT, or a related field",
+      "Good proficiency in JavaScript / TypeScript and modern web application development",
+      "Familiarity with Next.js, React, Node.js, APIs and JSON",
+      "Basic to intermediate understanding of SQL and relational databases",
+      "Comfort with Git and collaborative workflows",
+      "Strong problem-solving, debugging and analytical skills",
+    ],
+    niceToHave: [
+      "Familiarity with AI-assisted development tools — Claude Code, Cursor, GitHub Copilot, Windsurf or similar",
+      "Prior project / open-source contributions you can show",
+      "Exposure to testing frameworks, CI/CD, or deployment on Vercel / Cloud providers",
+      "Interest in LLMs, Generative AI and AI application development",
+      "Python knowledge",
+    ],
+    whatYouGet: [
+      "Full-time internship (preferred)",
+      "Letter of Recommendation for outstanding interns",
+      "Potential Pre-Placement Offer (PPO) for top performers",
+      "Pair-programming time with senior engineers",
+      "Real production ownership — your code ships from week one",
+    ],
+    process: [
+      "Application review + short screening call (20 min)",
+      "Coding exercise (asynchronous, ~3 hrs)",
+      "Pairing + code review conversation (60 min)",
+      "Culture + hiring-manager chat (30 min)",
     ],
   },
 ];

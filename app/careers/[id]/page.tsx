@@ -41,30 +41,81 @@ export default function JobDetailPage({
   const j = getJobById(params.id);
   if (!j) notFound();
 
-  const applyHref = `mailto:${company.email}?subject=${encodeURIComponent(
-    `Application — ${j.title} (${j.id})`
-  )}&body=${encodeURIComponent(
-    [
-      `Hello Logos Trinity team,`,
-      ``,
-      `I'd like to apply for the ${j.title} role (${j.id}) at ${j.company} — ${j.location}.`,
-      ``,
-      `A little about me:`,
-      `Name: `,
-      `Email: `,
-      `Phone: `,
-      `Current company / role: `,
-      `Total years of experience: `,
-      `Notice period: `,
-      `Current CTC: `,
-      `Expected CTC: `,
-      `LinkedIn: `,
-      ``,
-      `Please find my CV attached.`,
-      ``,
-      `— sent from logostrinitytechnologies.com/careers/${j.id}`,
-    ].join("\n")
-  )}`;
+  const occupied = j.status === "occupied";
+  const soon = j.status === "opening-soon";
+
+  const ctaLabel = occupied
+    ? "This role is filled"
+    : soon
+    ? "Register interest"
+    : "Apply now";
+
+  const applyHref = occupied
+    ? `mailto:${company.email}?subject=${encodeURIComponent(
+        `Future interest — ${j.title}`
+      )}&body=${encodeURIComponent(
+        [
+          `Hello Logos Trinity team,`,
+          ``,
+          `The ${j.title} role (${j.id}) is currently filled, but I'd like you to keep my profile on file in case it opens up again.`,
+          ``,
+          `Name: `,
+          `Email: `,
+          `Phone: `,
+          `Current company / role: `,
+          `Total years of experience: `,
+          `Notice period: `,
+          `LinkedIn: `,
+          ``,
+          `Please find my CV attached.`,
+          ``,
+          `— sent from logostrinitytechnologies.com/careers/${j.id}`,
+        ].join("\n")
+      )}`
+    : soon
+    ? `mailto:${company.email}?subject=${encodeURIComponent(
+        `Register interest — ${j.title} (${j.id})`
+      )}&body=${encodeURIComponent(
+        [
+          `Hello Logos Trinity team,`,
+          ``,
+          `I'd like to register my interest for the ${j.title} internship (${j.id}) — opening soon.`,
+          ``,
+          `Name: `,
+          `College + year: `,
+          `Email: `,
+          `Phone: `,
+          `Portfolio / GitHub / LinkedIn: `,
+          ``,
+          `Please notify me when applications open.`,
+          ``,
+          `— sent from logostrinitytechnologies.com/careers/${j.id}`,
+        ].join("\n")
+      )}`
+    : `mailto:${company.email}?subject=${encodeURIComponent(
+        `Application — ${j.title} (${j.id})`
+      )}&body=${encodeURIComponent(
+        [
+          `Hello Logos Trinity team,`,
+          ``,
+          `I'd like to apply for the ${j.title} role (${j.id}) at ${j.company} — ${j.location}.`,
+          ``,
+          `A little about me:`,
+          `Name: `,
+          `Email: `,
+          `Phone: `,
+          `Current company / role: `,
+          `Total years of experience: `,
+          `Notice period: `,
+          `Current CTC: `,
+          `Expected CTC: `,
+          `LinkedIn: `,
+          ``,
+          `Please find my CV attached.`,
+          ``,
+          `— sent from logostrinitytechnologies.com/careers/${j.id}`,
+        ].join("\n")
+      )}`;
 
   const related = jobs
     .filter((x) => x.id !== j.id && x.department === j.department)
@@ -79,13 +130,28 @@ export default function JobDetailPage({
       >
         <div className="flex flex-wrap items-center gap-3">
           <a href={applyHref} className="btn-primary">
-            Apply now
+            {ctaLabel}
             <ArrowRight size={16} />
           </a>
           <Link href="/careers" className="btn-ghost">
             Back to all roles
           </Link>
-          {j.urgent && (
+          {soon && (
+            <>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-flame-500 px-3 py-2 text-[11.5px] font-bold uppercase tracking-wider text-white shadow-[0_2px_6px_-2px_rgba(255,122,0,0.6)]">
+                New
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-navy-700 px-3 py-2 text-[11.5px] font-semibold uppercase tracking-wider text-white">
+                Opening Soon
+              </span>
+            </>
+          )}
+          {occupied && (
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-navy-700/15 px-3 py-2 text-[11.5px] font-semibold uppercase tracking-wider text-navy-700 dark:bg-white/10 dark:text-navy-200">
+              Occupied — position filled
+            </span>
+          )}
+          {!soon && !occupied && j.urgent && (
             <span className="inline-flex items-center gap-1.5 rounded-full bg-navy-700 px-3 py-2 text-[11.5px] font-semibold uppercase tracking-wider text-white">
               <Bolt size={12} />
               Urgent hire
@@ -157,7 +223,7 @@ export default function JobDetailPage({
 
               <div className="mt-12 flex flex-wrap items-center gap-3">
                 <a href={applyHref} className="btn-primary">
-                  Apply now
+                  {ctaLabel}
                   <ArrowRight size={16} />
                 </a>
                 <a
@@ -176,7 +242,11 @@ export default function JobDetailPage({
               <Reveal delay={0.15}>
                 <aside className="sticky top-32 rounded-3xl border border-navy-700/10 bg-white p-6 ring-border dark:border-white/10 dark:bg-white/[0.03]">
                   <p className="text-[10.5px] font-medium uppercase tracking-[0.18em] text-navy-700 dark:text-navy-300">
-                    Apply for this role
+                    {occupied
+                      ? "Position filled"
+                      : soon
+                      ? "Opening soon · Register interest"
+                      : "Apply for this role"}
                   </p>
                   <h3 className="mt-2 font-display text-lg font-semibold tracking-tight text-navy-900 dark:text-white">
                     {j.title}
@@ -200,11 +270,15 @@ export default function JobDetailPage({
                     href={applyHref}
                     className="btn-primary mt-6 w-full !py-2.5 text-sm"
                   >
-                    Apply now
+                    {ctaLabel}
                     <ArrowRight size={14} />
                   </a>
                   <p className="mt-3 text-center text-[11px] text-navy-700/70 dark:text-navy-300/60">
-                    Opens your email with a template · attach your CV
+                    {occupied
+                      ? "Opens your email to register future interest"
+                      : soon
+                      ? "Opens your email · we'll notify you when applications open"
+                      : "Opens your email with a template · attach your CV"}
                   </p>
 
                   <div className="mt-5 border-t border-navy-700/10 pt-4 text-sm text-navy-700 dark:border-white/5 dark:text-navy-300">
