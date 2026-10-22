@@ -640,7 +640,7 @@ export const jobs: Job[] = [
   /* ------------------------------------------------------------------ */
   {
     id: "LT-2027-INT-01",
-    status: "opening-soon",
+    status: "occupied",
     title: "AI Engineer Intern",
     company: "Logos Trinity Technologies",
     department: "Data & AI",
@@ -707,7 +707,7 @@ export const jobs: Job[] = [
   },
   {
     id: "LT-2027-INT-02",
-    status: "opening-soon",
+    status: "occupied",
     title: "Full Stack Development Intern",
     company: "Logos Trinity Technologies",
     department: "Engineering",
