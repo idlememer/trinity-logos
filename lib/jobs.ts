@@ -46,6 +46,84 @@ const commonWhatYouGet = [
 ];
 
 export const jobs: Job[] = [
+  /* ------------------------------------------------------------------ */
+  /* OPEN — actively hiring                                             */
+  /* ------------------------------------------------------------------ */
+  {
+    id: "LT-2027-SAP-01",
+    title: "SAP Enterprise Portal Consultant",
+    company: "Malaysian Bank (Confidential) — myHR2U programme",
+    department: "Engineering",
+    location: "Kuala Lumpur, Malaysia",
+    remote: "On-site",
+    type: "Contract",
+    experience: "8 – 12+ yrs",
+    salaryRange: "₹25 – 30 LPA",
+    skills: [
+      "SAP Enterprise Portal 7.5",
+      "SAP NetWeaver / Java Stack",
+      "Web Dynpro ABAP (WDA)",
+      "ESS / MSS",
+      "ECC6 EHP7 / EHP8",
+      "Portal SSO",
+      "LPD_CUST",
+      "UWL",
+    ],
+    posted: "Just posted",
+    featured: true,
+    urgent: true,
+    description: [
+      "Experienced SAP Enterprise Portal consultant with proven experience delivering SAP Enterprise Portal 7.5 migration projects integrated with SAP ECC6 EHP8 (or equivalent ECC landscape).",
+      "The consultant will support the Malaysian bank myHR2U programme by leading the Portal migration strategy, ESS/MSS migration assessment, Web Dynpro ABAP (WDA) transition planning, portal content migration, custom application remediation, SSO integration validation, and portal modernization recommendations.",
+      "This is a hands-on, on-site role in Kuala Lumpur requiring both technical architecture expertise and senior hands-on portal migration experience.",
+    ],
+    responsibilities: [
+      "Lead the SAP Enterprise Portal 7.5 migration strategy end-to-end",
+      "Run the ESS/MSS migration assessment and transition plan",
+      "Plan and execute the Web Dynpro ABAP (WDA) transition from legacy portal applications",
+      "Own portal content migration — PCD, roles, worksets, pages, iViews",
+      "Assess and remediate custom portal applications for the target landscape",
+      "Validate SSO integration and SAML / PingFederate / PingID flows",
+      "Produce portal modernisation recommendations the bank's architects can act on",
+      "Partner with the bank's HCM, Basis and security teams through to go-live",
+    ],
+    requirements: [
+      "8–10+ years of SAP Enterprise Portal experience",
+      "5+ years specifically on SAP EP 7.5",
+      "Minimum 1 or 2 completed Portal migration projects delivered end-to-end",
+      "Hands-on experience with SAP NetWeaver Portal administration and the SAP Java Stack",
+      "Deep Web Dynpro ABAP (WDA) implementation experience",
+      "Portal Content Directory (PCD) — roles, worksets, pages, iViews",
+      "Universal Worklist (UWL), SAP ESS/MSS and LPD_CUST",
+      "Experience in ECC6 EHP7 / EHP8 environments",
+      "Experience migrating ESS/MSS to WDA architecture",
+      "Experience assessing custom Portal applications for remediation",
+      "SAP Portal SSO and SAP Identity Management concepts",
+    ],
+    niceToHave: [
+      "Banking industry experience",
+      "SAP HCM background",
+      "SAP SuccessFactors integration exposure",
+      "SAP Fiori exposure",
+      "SAP SAML / PingFederate / PingID integration experience",
+    ],
+    whatYouGet: [
+      "On-site deployment in Kuala Lumpur with travel + accommodation sorted",
+      "Direct engagement with the bank's HCM and architecture leadership",
+      "Senior consultant-grade compensation",
+      ...commonWhatYouGet,
+    ],
+    process: [
+      "Recruiter screen (30 min)",
+      "Technical deep-dive on EP migration & WDA transition (75 min)",
+      "Architecture + stakeholder conversation with the bank's team (60 min)",
+      "Commercial + logistics alignment (30 min)",
+    ],
+  },
+
+  /* ------------------------------------------------------------------ */
+  /* OCCUPIED — previously filled roles                                 */
+  /* ------------------------------------------------------------------ */
   {
     id: "LT-2026-001",
     status: "occupied",
@@ -792,6 +870,8 @@ export const locations = [
   "Mumbai",
   "Chennai",
   "Remote",
+  "Kuala Lumpur",
+  "Malaysia",
 ] as const;
 
 export function getJobById(id: string): Job | undefined {
