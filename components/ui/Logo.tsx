@@ -68,7 +68,7 @@ export function Logo({
         )}
       />
       {variant === "full" && (
-        <span className="flex flex-col items-center whitespace-nowrap leading-none">
+        <span className="hidden flex-col items-center whitespace-nowrap leading-none sm:flex">
           <span
             className={cn(
               "font-display font-bold uppercase tracking-[0.02em] text-navy-900 dark:text-white",
