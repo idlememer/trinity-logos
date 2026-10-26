@@ -101,22 +101,16 @@ export function Navbar() {
       className="fixed inset-x-0 top-0 z-50 will-change-transform"
       onMouseLeave={scheduleClose}
     >
-      <div
+      <motion.header
+        layout
+        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
         className={cn(
-          "flex justify-center px-3 transition-all duration-500 sm:px-6",
-          scrolled ? "pt-3 lg:pt-4" : "pt-5 lg:pt-7"
+          "flex w-full items-center justify-between overflow-visible border-b bg-white px-4 py-3 transition-colors duration-300 dark:bg-navy-950 sm:px-6 lg:px-10 lg:py-4",
+          scrolled
+            ? "border-navy-700/15 shadow-[0_4px_16px_-8px_rgba(0,28,102,0.15)] dark:border-white/10"
+            : "border-navy-700/10 dark:border-white/10"
         )}
       >
-        <motion.header
-          layout
-          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className={cn(
-            "flex w-full max-w-7xl items-center justify-between overflow-visible rounded-full border px-4 py-2.5 transition-colors duration-300 sm:px-5 lg:px-7 lg:py-3.5",
-            scrolled
-              ? "border-navy-700/15 bg-white shadow-[0_4px_16px_-8px_rgba(0,28,102,0.15)] dark:border-white/10 dark:bg-navy-950"
-              : "border-navy-700/10 bg-white dark:border-white/10 dark:bg-navy-950"
-          )}
-        >
           <Logo size="sm" />
 
           {/* Desktop nav */}
@@ -203,7 +197,6 @@ export function Navbar() {
             </button>
           </div>
         </motion.header>
-      </div>
 
       {/* Mega menu — sibling of header, centered on viewport.
           Positioning (translate-x) goes on the outer div; motion handles the
