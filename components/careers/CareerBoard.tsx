@@ -54,10 +54,90 @@ export function CareerBoard() {
     () => jobs.filter((j) => j.status === "opening-soon").length,
     []
   );
+  const openJobs = React.useMemo(
+    () => jobs.filter((j) => !j.status),
+    []
+  );
 
   return (
     <section className="pb-24">
       <div className="container">
+        {/* Actively Hiring banner — highlights the currently-open roles */}
+        {openJobs.length > 0 && (
+          <Reveal>
+            <div
+              className="mb-6 overflow-hidden rounded-3xl p-[1.5px] shadow-[0_14px_32px_-14px_rgba(255,122,0,0.45)]"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(255,255,255,0.35) 0%, rgba(255,122,0,0.75) 50%, rgba(255,255,255,0.25) 100%)",
+              }}
+            >
+              <div
+                className="relative flex flex-col items-start gap-4 overflow-hidden rounded-[calc(1.5rem-1.5px)] p-5 sm:flex-row sm:items-center sm:gap-5 sm:p-6"
+                style={{
+                  background:
+                    "linear-gradient(135deg, #001C66 0%, #002C8C 55%, #0038B8 100%)",
+                }}
+              >
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-flame-500/50 blur-3xl"
+                />
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -bottom-20 -left-16 h-40 w-40 rounded-full bg-navy-500/40 blur-3xl"
+                />
+
+                <span className="relative flex items-center gap-2 self-stretch sm:self-auto">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-flame-500 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white shadow-[0_2px_6px_-2px_rgba(255,122,0,0.75)]">
+                    <span className="relative inline-flex h-1.5 w-1.5">
+                      <span className="absolute inset-0 rounded-full bg-white animate-ping opacity-80" />
+                      <span className="absolute inset-0 rounded-full bg-white" />
+                    </span>
+                    Actively Hiring
+                  </span>
+                  <span className="inline-flex items-center rounded-full bg-white/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white ring-1 ring-white/20">
+                    {openJobs.length} open
+                  </span>
+                </span>
+
+                <div className="relative flex-1 min-w-0">
+                  <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-white/70">
+                    Currently open
+                  </p>
+                  <ul className="mt-1 space-y-0.5 text-[14.5px] leading-snug text-white/95 sm:text-base">
+                    {openJobs.slice(0, 3).map((j) => (
+                      <li key={j.id}>
+                        <Link
+                          href={`/careers/${j.id}`}
+                          className="group inline-flex flex-wrap items-baseline gap-x-2 hover:text-white"
+                        >
+                          <span className="font-semibold text-white underline decoration-white/30 decoration-1 underline-offset-4 group-hover:decoration-white">
+                            {j.title}
+                          </span>
+                          <span className="text-[12.5px] text-white/70">
+                            {j.location} · {j.salaryRange}
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {openJobs.length === 1 && (
+                  <Link
+                    href={`/careers/${openJobs[0].id}`}
+                    className="relative inline-flex shrink-0 items-center gap-1.5 self-start rounded-full bg-flame-500 px-5 py-2.5 text-[13px] font-semibold text-white shadow-[0_4px_14px_-4px_rgba(255,122,0,0.7)] transition-colors hover:bg-flame-400 sm:self-center"
+                  >
+                    View role
+                    <ArrowUpRight size={13} />
+                  </Link>
+                )}
+              </div>
+            </div>
+          </Reveal>
+        )}
+
         {/* Opening Soon banner — only renders if any role has that status */}
         {openingSoonCount > 0 && (
           <Reveal>
@@ -241,8 +321,10 @@ function Select({
 function JobRow({ job }: { job: Job }) {
   const occupied = job.status === "occupied";
   const soon = job.status === "opening-soon";
+  const open = !occupied && !soon;
 
-  return (
+  // Open roles get a gradient-border wrapper so they visually pop.
+  const card = (
     <motion.div
       whileHover={occupied ? undefined : { y: -2 }}
       transition={{ duration: 0.2 }}
@@ -257,11 +339,26 @@ function JobRow({ job }: { job: Job }) {
             ? "border-navy-700/8 bg-navy-100/40 opacity-70 hover:opacity-85 dark:border-white/5 dark:bg-white/[0.015]"
             : soon
             ? "border-navy-700/20 bg-white hover:-translate-y-0.5 hover:border-navy-700/40 hover:shadow-card dark:border-white/15 dark:bg-white/[0.03]"
-            : "border-navy-700/10 bg-white hover:border-navy-700/30 hover:shadow-card dark:border-white/10 dark:bg-white/[0.03] dark:hover:border-navy-400/40"
+            : "border-transparent bg-white hover:-translate-y-0.5 hover:shadow-card dark:border-white/5 dark:bg-white/[0.03]"
         )}
       >
         {/* Corner status chips */}
-        <div className="absolute right-5 top-5 flex items-center gap-1.5">
+        <div className="absolute right-5 top-5 flex flex-wrap items-center justify-end gap-1.5">
+          {open && (
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-flame-500 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-white shadow-[0_2px_6px_-2px_rgba(255,122,0,0.6)]">
+              <span className="relative inline-flex h-1.5 w-1.5">
+                <span className="absolute inset-0 rounded-full bg-white animate-ping opacity-80" />
+                <span className="absolute inset-0 rounded-full bg-white" />
+              </span>
+              Hiring Now
+            </span>
+          )}
+          {open && job.urgent && (
+            <span className="inline-flex items-center gap-1 rounded-full bg-navy-700 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-white">
+              <Bolt size={11} />
+              Urgent
+            </span>
+          )}
           {soon && (
             <>
               <span className="inline-flex items-center gap-1 rounded-full bg-flame-500 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-white shadow-[0_2px_6px_-2px_rgba(255,122,0,0.6)]">
@@ -275,12 +372,6 @@ function JobRow({ job }: { job: Job }) {
           {occupied && (
             <span className="inline-flex items-center gap-1 rounded-full bg-navy-700/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-navy-700 dark:bg-white/10 dark:text-navy-200">
               Occupied
-            </span>
-          )}
-          {!soon && !occupied && job.urgent && (
-            <span className="inline-flex items-center gap-1 rounded-full bg-navy-700 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-white">
-              <Bolt size={11} />
-              Urgent
             </span>
           )}
         </div>
@@ -384,4 +475,21 @@ function JobRow({ job }: { job: Job }) {
       </Link>
     </motion.div>
   );
+
+  // Open roles get an orange→navy gradient halo so they stand out from the
+  // flat Occupied cards above and below them.
+  if (open) {
+    return (
+      <div
+        className="rounded-[26px] p-[2px] shadow-[0_14px_30px_-14px_rgba(255,122,0,0.4)]"
+        style={{
+          background:
+            "linear-gradient(135deg, #FF7A00 0%, #FF924D 35%, #0038B8 100%)",
+        }}
+      >
+        {card}
+      </div>
+    );
+  }
+  return card;
 }
