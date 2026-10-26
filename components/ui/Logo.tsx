@@ -68,7 +68,7 @@ export function Logo({
         )}
       />
       {variant === "full" && (
-        <span className="flex flex-col items-start whitespace-nowrap leading-none">
+        <span className="flex flex-col items-center whitespace-nowrap leading-none">
           <span
             className={cn(
               "font-display font-bold uppercase tracking-[0.02em] text-navy-900 dark:text-white",
@@ -79,7 +79,7 @@ export function Logo({
           </span>
           <span
             className={cn(
-              "mt-1 font-semibold uppercase tracking-[0.14em] text-navy-700/75 dark:text-navy-200/75",
+              "mt-0.5 font-semibold uppercase tracking-[0.14em] text-navy-700/75 dark:text-navy-200/75",
               dims.sub
             )}
           >
