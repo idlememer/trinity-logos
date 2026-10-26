@@ -342,8 +342,9 @@ function JobRow({ job }: { job: Job }) {
             : "border-transparent bg-white hover:-translate-y-0.5 hover:shadow-card dark:border-white/5 dark:bg-white/[0.03]"
         )}
       >
-        {/* Corner status chips */}
-        <div className="absolute right-5 top-5 flex flex-wrap items-center justify-end gap-1.5">
+        {/* Status chips — in flow on mobile (above the dept icon so they
+            can't overlap it), floated to the top-right corner on lg+. */}
+        <div className="flex flex-wrap items-center gap-1.5 lg:absolute lg:right-5 lg:top-5 lg:justify-end">
           {open && (
             <span className="inline-flex items-center gap-1.5 rounded-full bg-flame-500 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-white shadow-[0_2px_6px_-2px_rgba(255,122,0,0.6)]">
               <span className="relative inline-flex h-1.5 w-1.5">
