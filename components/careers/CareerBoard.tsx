@@ -398,7 +398,7 @@ function JobRow({ job }: { job: Job }) {
               {job.department}
             </span>
             <span className="text-[11px] text-navy-600/70 dark:text-navy-300/60">
-              {job.id} · {occupied ? "position filled" : `posted ${job.posted}`}
+              {job.id} · {occupied ? "Position filled" : job.posted}
             </span>
           </div>
           <h3

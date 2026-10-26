@@ -126,7 +126,7 @@ export default function JobDetailPage({
       <PageHeader
         eyebrow={`${j.department} · ${j.id}`}
         title={<>{j.title}</>}
-        description={`${j.company} · Posted ${j.posted}`}
+        description={`${j.company} · ${j.posted}`}
       >
         <div className="flex flex-wrap items-center gap-3">
           <a href={applyHref} className="btn-primary">

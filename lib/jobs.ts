@@ -69,7 +69,7 @@ export const jobs: Job[] = [
       "LPD_CUST",
       "UWL",
     ],
-    posted: "Just posted",
+    posted: "Just Posted",
     featured: true,
     urgent: true,
     description: [
