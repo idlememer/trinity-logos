@@ -336,7 +336,7 @@ function JobRow({ job }: { job: Job }) {
           "group relative flex scroll-mt-32 flex-col gap-5 overflow-hidden rounded-3xl border p-6 ring-border transition-all",
           "lg:flex-row lg:items-center lg:gap-6",
           occupied
-            ? "border-navy-700/8 bg-navy-100/40 opacity-70 hover:opacity-85 dark:border-white/5 dark:bg-white/[0.015]"
+            ? "border-navy-700/12 bg-navy-100/50 dark:border-white/10 dark:bg-white/[0.02]"
             : soon
             ? "border-navy-700/20 bg-white hover:-translate-y-0.5 hover:border-navy-700/40 hover:shadow-card dark:border-white/15 dark:bg-white/[0.03]"
             : "border-transparent bg-white hover:-translate-y-0.5 hover:shadow-card dark:border-white/5 dark:bg-white/[0.03]"
@@ -405,7 +405,7 @@ function JobRow({ job }: { job: Job }) {
             className={cn(
               "mt-2 font-display text-lg font-semibold tracking-tight sm:text-xl",
               occupied
-                ? "text-navy-700/80 dark:text-navy-200/70"
+                ? "text-navy-800 dark:text-navy-100"
                 : "text-navy-900 group-hover:text-navy-700 dark:text-white"
             )}
           >

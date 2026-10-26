@@ -55,7 +55,7 @@ export const jobs: Job[] = [
     company: "Malaysian Bank (Confidential) — myHR2U programme",
     department: "Engineering",
     location: "Kuala Lumpur, Malaysia",
-    remote: "On-site",
+    remote: "Remote",
     type: "Contract",
     experience: "8 – 12+ yrs",
     salaryRange: "₹25 – 30 LPA",
@@ -75,7 +75,7 @@ export const jobs: Job[] = [
     description: [
       "Experienced SAP Enterprise Portal consultant with proven experience delivering SAP Enterprise Portal 7.5 migration projects integrated with SAP ECC6 EHP8 (or equivalent ECC landscape).",
       "The consultant will support the Malaysian bank myHR2U programme by leading the Portal migration strategy, ESS/MSS migration assessment, Web Dynpro ABAP (WDA) transition planning, portal content migration, custom application remediation, SSO integration validation, and portal modernization recommendations.",
-      "This is a hands-on, on-site role in Kuala Lumpur requiring both technical architecture expertise and senior hands-on portal migration experience.",
+      "This is a hands-on, fully remote engagement (serving the Kuala Lumpur bank) requiring both technical architecture expertise and senior hands-on portal migration experience.",
     ],
     responsibilities: [
       "Lead the SAP Enterprise Portal 7.5 migration strategy end-to-end",
@@ -108,7 +108,7 @@ export const jobs: Job[] = [
       "SAP SAML / PingFederate / PingID integration experience",
     ],
     whatYouGet: [
-      "On-site deployment in Kuala Lumpur with travel + accommodation sorted",
+      "Fully remote engagement — work from your preferred base, serving the Kuala Lumpur bank",
       "Direct engagement with the bank's HCM and architecture leadership",
       "Senior consultant-grade compensation",
       ...commonWhatYouGet,
